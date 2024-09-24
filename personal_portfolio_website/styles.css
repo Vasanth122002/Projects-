@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#home {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #34495e;
+  color: white;
+  text-align: center;
+}
+.hero-content {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 40px;
+  border-radius: 10px;
+}
+.hero-content h1 {
+  font-size: 40px;
+}
+.hero-content p {
+  font-size: 20px;
+  margin: 10px 0 20px 0;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+#about {
+  background-color: #f2f4f4;
+  padding: 60px 20px;
+  text-align: center;
+  color: #333;
+}
+#skills {
+  background-color: #5dade2;
+  padding: 60px 20px;
+  text-align: center;
+  color: #333;
+}
+
+#contact {
+  background-color: #d5dbdb;
+  padding: 60px 20px;
+  text-align: center;
+  color: #333;
+}
+#about h2,
+#skills h2,
+#contact h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #333;
+}
+.skills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.skill {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+}
+.skill h3 {
+  margin-bottom: 10px;
+}
+.progress {
+  width: 100%;
+  background-color: #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 20px;
+}
+.skill-progress {
+  height: 100%;
+  width: 0;
+  background-color: #5dade2;
+  transition: width 1s ease;
+}
+
+body.dark-mode {
+  background-color: #333;
+  color: white;
+}
+body.dark-mode header,
+body.dark-mode footer,
+body.dark-mode section #about {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode button,
+body.dark-mode input,
+body.dark-mode textarea {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #444;
+}
+body.dark-mode .skill-progress {
+  background-color: #a569bd;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+}
+form label {
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+form button {
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+form button:hover {
+  background-color: #2980b9;
+}
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background: #333;
+  color: white;
+}
+/*
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  background-color: #333;
+
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+.sidebar a:hover {
+  background-color: #575757;
+}
+
+.open-btn {
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+  padding: 10px 15px;
+  background-color: #4caf50;
+  border: none;
+}
+*/

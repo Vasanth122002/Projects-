@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce_Website</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>E-Commerce Store</h1>
+      <div class="auth">
+        <button id="login-button" onclick="toggleLogin()">Login</button>
+        <button id="register-button" onclick="toggleRegister()">
+          Register
+        </button>
+        <button id="profile-button" onclick="viewProfile()">Profile</button>
+      </div>
+      <div class="cart">
+        <button id="cart-button" onclick="toggleCart()">Cart (0)</button>
+      </div>
+      <div class="wishlist">
+        <button id="wishlist-button" onclick="toggleWishlist()">
+          Wishlist (0)
+        </button>
+      </div>
+    </header>
+    <main>
+      <section id="filter">
+        <input
+          type="text"
+          id="search"
+          placeholder="Search Products..."
+          onkeyup="filterProducts()"
+        />
+        <select id="category-filter" onchange="filterProducts()">
+          <option value="">All</option>
+          <option value="electronics">Electronics</option>
+          <option value="clothing">Clothing</option>
+          <option value="accessories">Accessories</option>
+        </select>
+        <select id="size-filter" onchange="filterProducts()">
+          <option value="">All</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
+        <select id="sort-filter" onchange="sortProducts()">
+          <option value="default">Sort By</option>
+          <option value="price-asc">Price : Low to High</option>
+          <option value="price-desc">Price : High to Low</option>
+          <option value="rating">Rating</option>
+        </select>
+      </section>
+
+      <section id="product-list">
+        <div
+          class="product"
+          data-name="Product 1"
+          data-price="10"
+          data-category="electronics"
+          data-rating="4"
+          data-stock="5"
+        >
+          <img src="" alt="Product 1" />
+          <h2>Product 1</h2>
+          <p>Price : $10</p>
+          <p>Rating 🌟🌟🌟🌟⭐</p>
+          <p>In Stock : 5</p>
+          <button
+            onclick="showDetails('Product 1',10,'Description for Product 1.')"
+          >
+            View Details
+          </button>
+          <button onclick="addToCart('Product 1',10)">Add to Cart</button>
+          <button onclick="addToWishlist('Product 1',10)">
+            Add to Wishlist
+          </button>
+          <button onclick="addReview('Product 1',10)">Add Review</button>
+        </div>
+        <div
+          class="product"
+          data-name="Product 2"
+          data-price="20"
+          data-category="clothing"
+          data-rating="5"
+          data-stock="0"
+        >
+          <img src="" alt="Product 2" />
+          <h2>Product 2</h2>
+          <p>Price : $20</p>
+          <p>Rating 🌟🌟🌟🌟🌟</p>
+          <p>In Stock : 0</p>
+          <button
+            onclick="showDetails('Product 2',20,'Description for Product 2.')"
+          >
+            View Details
+          </button>
+          <button onclick="addToCart('Product 2',20)">Add to Cart</button>
+          <button onclick="addToWishlist('Product 2',20)">
+            Add to Wishlist
+          </button>
+          <button onclick="addReview('Product 2',20)">Add Review</button>
+        </div>
+        <div
+          class="product"
+          data-name="Product 3"
+          data-price="30"
+          data-category="accessories"
+          data-rating="3"
+          data-stock="2"
+        >
+          <img src="" alt="Product 3" />
+          <h2>Product 3</h2>
+          <p>Price : $30</p>
+          <p>Rating 🌟🌟🌟⭐⭐</p>
+          <p>In Stock : 2</p>
+          <button
+            onclick="showDetails('Product 3',30,'Description for Product 1.')"
+          >
+            View Details
+          </button>
+          <button onclick="addToCart('Product 3',30)">Add to Cart</button>
+          <button onclick="addToWishlist('Product 3',30)">
+            Add to Wishlist
+          </button>
+          <button onclick="addReview('Product 3',30)">Add Review</button>
+        </div>
+        <div
+          class="product"
+          data-name="Product "
+          data-price="25"
+          data-category="electronics"
+          data-rating="4"
+          data-stock="3"
+        >
+          <img src="" alt="Product 4" />
+          <h2>Product 4</h2>
+          <p>Price : $25</p>
+          <p>Rating 🌟🌟🌟🌟⭐</p>
+          <p>In Stock : 3</p>
+          <button
+            onclick="showDetails('Product 4',25,'Description for Product 1.')"
+          >
+            View Details
+          </button>
+          <button onclick="addToCart('Product 4',25)">Add to Cart</button>
+          <button onclick="addToWishlist('Product 4',25)">
+            Add to Wishlist
+          </button>
+          <button onclick="addReview('Product 4',25)">Add Review</button>
+        </div>
+      </section>
+
+      <section id="cart" class="hidden">
+        <h2>Your Shopping Cart</h2>
+        <ul id="cart-items"></ul>
+        <p id="total-price">Total : $0</p>
+        <input type="text" id="discount-code" placeholder="Discount Code" />
+        <button onclick="applyDiscount()">Apply Discount</button>
+        <button onclick="checkout()">Checkout</button>
+      </section>
+
+      <section id="wishlist" class="hidden">
+        <h2>Your Wishlist</h2>
+        <ul id="wishlist-items"></ul>
+      </section>
+
+      <section id="comparison">
+        <h2>Product Comparision</h2>
+        <ul id="comparison-items"></ul>
+        <button onclick="clearComparison()">Clear Comparison</button>
+      </section>
+
+      <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <h3 onclick="toggleFAQ(this)">what is return policy?</h3>
+          <p class="faq-answer hidden">
+            you can return products within 30 days for a full refund.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 onclick="toggleFAQ(this)">Do you offer discounts?</h3>
+          <p class="faq-answer hidden">
+            yes, we offer seasonal discounts. Subscribe to our newsletter for
+            updates
+          </p>
+        </div>
+      </section>
+
+      <section id="recently-viewed">
+        <h2>Recently viewed Products</h2>
+        <ul id="recently-viewed-items"></ul>
+      </section>
+
+      <section id="subscribe">
+        <h2>Subscribe to our Newsletter</h2>
+        <input type="email" id="email" placeholder="Enter your Email" />
+        <button onclick="subscribe()">Subscribe</button>
+      </section>
+
+      <section id="feedback">
+        <h2>Feedback</h2>
+        <textarea id="feedback-text" placeholder="Your feedback..."></textarea>
+        <button onclick="submitFeedback()">Submit Feedback</button>
+      </section>
+    </main>
+
+    <div id="product-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+        <p id="modal-price"></p>
+        <button id="modal-add-cart" onclick="">Add to Cart</button>
+      </div>
+    </div>
+
+    <div id="login-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close" onclick="closeLoginModal()">&times;</span>
+        <h2>Login</h2>
+        <input type="text" id="login-username" placeholder="Username" />
+        <input type="password" id="login-password" placeholder="Password" />
+        <button onclick="login()">Login</button>
+      </div>
+    </div>
+
+    <div id="register-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close" onclick="closeRegisterModal()">&times;</span>
+        <h2>Register</h2>
+        <input type="text" id="register-username" placeholder="Username" />
+        <input type="password" id="register-password" placeholder="Password" />
+        <button onclick="register()">Register</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
