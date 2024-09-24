@@ -1,0 +1,192 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+ </head>
+ <body> 
+ <header>
+    <!--
+                        NAVBAR
+    -->
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Task Manager</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarnav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarnav">
+                <ul class="navbar-nav ms-auto" >
+                    <li class="nav-item"> <a class="nav-link active" href="#">Dashboard</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Task</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Reports</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+     
+ </header>
+    <!--
+                   BREADCRUMB    navigation path
+    -->
+                   <nav class="m-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Task</li>
+                    </ol>
+                   </nav>
+ <main>
+    <div class="container">
+         <!--
+         BY DEFAULT - SUBMIT BUTTON
+         SO MENTION TYPE ITS NOT A SUBMIT BUTTON
+         -->       
+         <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#addmodeltask">
+            Add Task
+         </button>
+   <!--
+                   CARDS     
+   -->
+                   <div class="card mt-3">
+                    <div class="card-header">
+                        Task List
+                    </div>
+                    <div class="card-body">
+                        <!--
+                             LIST GROUP                        
+                        -->
+                        <ul class="list-group list-group-flush ">
+                            <li class="list-group-item active d-flex justify-content-between align-items-center">
+                                Task 1
+                            <span class="badge bg-success rounded-pill">New</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Task 2
+                                <span class="badge bg-warning rounded-pill">in progress</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center" >
+                                Task 3
+                                <span class="badge bg-danger rounded-pill">Canclled</span>
+                            </li>
+                        </ul>
+                    </div>
+               
+                   </div>
+                <!--
+                      MODEL
+                   -->
+                   <div class="modal fade"  id="addmodeltask" >
+                    <div class="modal-dialog">
+                           <div class="modal-content">
+                                  
+                             <div class="modal-header">
+                                 <h1 class="modal-title">Add Task</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                             <div class="modal-body">
+                                <form action="">
+                                    <div class="mb-3">
+                                        <label for="TaskName" class="form-label">Task Name : </label>
+                                       <input class="form-control" id="TaskName" type="text" placeholder="Enter Task Name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="TaskDescription" class="form-label">Task Description : </label>
+                                       <textarea class="form-control"id="TaskDescription" type="text" placeholder="Enter Description"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="TaskStatus" class="form-label">Task Status : </label>
+
+                                        <select class="form-select" name="" id="TaskStatus">
+                                            <option selected>New</option>
+                                            <option >IN Progress</option>
+                                            <option >Completed</option>
+                                            <option >Canceled</option>
+                                        </select>
+                                    </div>
+                                </form>
+                             </div>
+                             <div class="modal-footer">
+                                   <button type="button" class="btn btn-primary">Save Task</button>
+                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                             </div>
+                           </div>
+                    </div>
+               </div >     
+               <!--
+                       DROPDOWN
+               -->
+               <div class="dropdown">
+                  <button  class="btn btn-secondary dropdown-toggle" type="button"  data-bs-toggle="dropdown" >Actions</button>              
+                 <ul class="dropdown-menu">
+                      <li><a  class="dropdown-item" href="#">Edit Task</a></li>
+                      <li><a  class="dropdown-item" href="#">Delete Task</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a  class="dropdown-item" href="#">Mark as Completed</a></li>
+                 </ul>
+               </div>
+
+        <!--
+        nav tabs       
+        -->
+        <ul class="nav nav-tabs mt-3">
+            <li class="nav-item "> <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#alltasks">All Tasks</button></li>
+            <li class="nav-item"> <button class="nav-link"  data-bs-toggle="tab" data-bs-target="#completedtasks">Completed Task</button></li>
+            <li class="nav-item"> <button class="nav-link"  data-bs-toggle="tab" data-bs-target="#pendingtasks">Pending Tasks</button></li>
+        </ul>
+      <div class="tab-content">
+
+        <div class="tab-pane show fade active" id="alltasks">
+            <p>All tasks is displayed here</p>
+        </div>
+        <div class="tab-pane fade "id="completedtasks">
+            <p>completed task is displayed here</p>
+        </div>
+        <div class="tab-pane fade" id="pendingtasks">
+            <p>pending tasks is displayed here</p>
+        </div>
+
+      </div>
+
+  <!--
+     PAGINATION    
+  -->
+ <nav>
+
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">previous</a></li>
+        <li class="page-item"><a class="page-link active"href="#">1</a></li>
+        <li class="page-item"><a class="page-link"href="#">2</a></li>
+        <li class="page-item"><a class="page-link"href="#">3</a></li>
+        <li class="page-item"><a class="page-link disabled"href="#">next</a></li>
+    </ul>
+ </nav>
+
+
+<!--
+                   TOOLTIP 
+-->
+ <button class="btn btn-info mt-4 " data-bs-toggle="tooltip" data-bs-title="navigation to documents">go to document</button>
+
+   
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </main>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+ </body>
+ </html>
